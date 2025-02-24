@@ -3,14 +3,12 @@ blueprint:
   description: "Controls a light with a switch given by ENTITY. \n\nShort Button press will toggle light for both Buttons (helpfull in darkness) \n\n Mode set to restart is mandatory for stop after long press to work."
   domain: automation
   input:
-    source_switch_e1743_action:
+    remote_device:
       name: Tradfri E1743 Switch
       description: The switch-action which triggers this automation.
       selector:
-        entity:
-          filter:
-            - integration: mqtt
-              domain: sensor
+        device:
+          integration: mqtt
     remote_name:
       name: (Zigbee2MQTT) Remote Name
       description: The name of the controller (e.g. IKEA Rodret). **_Choose if you are using Zigbee2MQTT._**
@@ -106,20 +104,32 @@ blueprint:
 alias: Ikea remote via zigbee2mqtt
 description: ""
 trigger:
-  - platform: state
-    entity_id: !input source_switch_e1743_action
+  - platform: device
+    domain: mqtt
+    device_id: !input remote_device
+    type: action
+    subtype: "on"
     id: "on"
     to: "on"
-  - platform: state
-    entity_id: !input source_switch_e1743_action
+  - platform: device
+    domain: mqtt
+    device_id: !input remote_device
+    type: action
+    subtype: "off"
     id: "off"
     to: "off"
-  - platform: state
-    entity_id: !input source_switch_e1743_action
+  - platform: device
+    domain: mqtt
+    device_id: !input remote_device
+    type: action
+    subtype: "arrow_left_click"
     id: arrow_left_click
     to: arrow_left_click
-  - platform: state
-    entity_id: !input source_switch_e1743_action
+  - platform: device
+    domain: mqtt
+    device_id: !input remote_device
+    type: action
+    subtype: "arrow_right_click"
     id: arrow_right_click
     to: arrow_right_click
 condition: []
