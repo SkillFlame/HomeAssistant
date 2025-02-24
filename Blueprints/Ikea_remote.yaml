@@ -105,22 +105,22 @@ alias: Ikea remote via zigbee2mqtt
 description: ""
 trigger:
   - domain: mqtt
-    device_id: !input source_switch_e1743_action
+    device_id: !input remote_device
     type: action
     subtype: "on"
     id: "on"
   - domain: mqtt
-    device_id: !input source_switch_e1743_action
+    device_id: !input remote_device
     type: action
     subtype: "off"
     id: "off"
   - domain: mqtt
-    device_id: !input source_switch_e1743_action
+    device_id: !input remote_device
     type: action
     subtype: arrow_left_click
     id: arrow_left_click
   - domain: mqtt
-    device_id: !input source_switch_e1743_action
+    device_id: !input remote_device
     type: action
     subtype: arrow_right_click
     id: arrow_right_click
