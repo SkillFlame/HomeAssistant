@@ -8,7 +8,6 @@ blueprint:
       description: The switch-action which triggers this automation.
       selector:
         device:
-          domain: mqtt
     remote_name:
       name: (Zigbee2MQTT) Remote Name
       description: The name of the controller (e.g. IKEA Rodret). **_Choose if you are using Zigbee2MQTT._**
