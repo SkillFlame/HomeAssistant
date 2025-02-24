@@ -8,7 +8,7 @@ blueprint:
       description: The switch-action which triggers this automation.
       selector:
         device:
-          integration: mqtt
+          domain: mqtt
     remote_name:
       name: (Zigbee2MQTT) Remote Name
       description: The name of the controller (e.g. IKEA Rodret). **_Choose if you are using Zigbee2MQTT._**
@@ -104,33 +104,25 @@ blueprint:
 alias: Ikea remote via zigbee2mqtt
 description: ""
 trigger:
-  - platform: device
-    domain: mqtt
-    device_id: !input remote_device
+  - domain: mqtt
+    device_id: !input source_switch_e1743_action
     type: action
     subtype: "on"
-    id: "on"
     to: "on"
-  - platform: device
-    domain: mqtt
-    device_id: !input remote_device
+  - domain: mqtt
+    device_id: !input source_switch_e1743_action
     type: action
     subtype: "off"
-    id: "off"
     to: "off"
-  - platform: device
-    domain: mqtt
-    device_id: !input remote_device
+  - domain: mqtt
+    device_id: !input source_switch_e1743_action
     type: action
-    subtype: "arrow_left_click"
-    id: arrow_left_click
+    subtype: arrow_left_click
     to: arrow_left_click
-  - platform: device
-    domain: mqtt
-    device_id: !input remote_device
+  - domain: mqtt
+    device_id: !input source_switch_e1743_action
     type: action
-    subtype: "arrow_right_click"
-    id: arrow_right_click
+    subtype: arrow_right_click
     to: arrow_right_click
 condition: []
 action:
