@@ -108,22 +108,22 @@ trigger:
     device_id: !input source_switch_e1743_action
     type: action
     subtype: "on"
-    to: "on"
+    id: "on"
   - domain: mqtt
     device_id: !input source_switch_e1743_action
     type: action
     subtype: "off"
-    to: "off"
+    id: "off"
   - domain: mqtt
     device_id: !input source_switch_e1743_action
     type: action
     subtype: arrow_left_click
-    to: arrow_left_click
+    id: arrow_left_click
   - domain: mqtt
     device_id: !input source_switch_e1743_action
     type: action
     subtype: arrow_right_click
-    to: arrow_right_click
+    id: arrow_right_click
 condition: []
 action:
   - variables:
