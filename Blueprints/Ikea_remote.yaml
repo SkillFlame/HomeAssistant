@@ -156,7 +156,7 @@ action:
                 continue_on_timeout: true
               - if:
                   - condition: template
-                    value_template: "{{ wait.completed }}"
+                    value_template: "{{ not wait.completed }}"
                 then: !input on_double_press_action
                 else: 
                   - service: light.turn_on
