@@ -148,15 +148,14 @@ action:
                   - domain: mqtt
                     device_id: !input remote_device
                     type: action
-                    subtype: "on"
+                    subtype: "off"
                     trigger: device
-                    id: "on"
                 timeout:
                   milliseconds: !input helper_double_press_delay
                 continue_on_timeout: true
               - if:
                   - condition: template
-                    value_template: "{{ not wait.completed }}"
+                    value_template: "{{ wait.completed }}"
                 then: !input on_double_press_action
                 else: 
                   - service: light.turn_on
