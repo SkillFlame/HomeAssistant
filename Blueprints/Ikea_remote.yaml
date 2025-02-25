@@ -156,7 +156,7 @@ action:
                 continue_on_timeout: true
               - if:
                   - condition: template
-                    value_template: "{{ wait.trigger.idx is defined }}"
+                    value_template: "{{ wait.completed }}"
                 then: !input on_double_press_action
                 else: 
                   - service: light.turn_on
@@ -187,7 +187,7 @@ action:
                 continue_on_timeout: true
               - if:
                   - condition: template
-                    value_template: "{{ wait.trigger.idx is defined }}"
+                    value_template: "{{ wait.completed }}"
                 then: !input off_double_press_action
                 else: 
                   - service: light.turn_off
@@ -218,7 +218,7 @@ action:
                 continue_on_timeout: true
               - if:
                   - condition: template
-                    value_template: "{{ wait.trigger.idx is defined }}"
+                    value_template: "{{ wait.completed }}"
                 then: !input arrow_left_click_double_press_action
                 else: 
                   - service: light.turn_on
@@ -257,7 +257,7 @@ action:
                 continue_on_timeout: true
               - if:
                   - condition: template
-                    value_template: "{{ wait.trigger.idx is defined }}"
+                    value_template: "{{ wait.completed }}"
                 then: !input arrow_right_click_double_press_action
                 else: 
                   - service: light.turn_on
