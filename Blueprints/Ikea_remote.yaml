@@ -145,9 +145,12 @@ action:
                 value_template: "{{ on_double_press }}"
             then:
               - wait_for_trigger:
-                  - platform: mqtt
-                    topic: "{{ 'zigbee2mqtt/' ~ z2m_controller ~ '/action' }}"
-                    payload: "on"
+                  - domain: mqtt
+                    device_id: !input remote_device
+                    type: action
+                    subtype: "on"
+                    trigger: device
+                    id: "on"
                 timeout:
                   milliseconds: !input helper_double_press_delay
                 continue_on_timeout: true
@@ -173,9 +176,12 @@ action:
                 value_template: "{{ off_double_press }}"
             then:
               - wait_for_trigger:
-                  - platform: mqtt
-                    topic: "{{ 'zigbee2mqtt/' ~ z2m_controller ~ '/action' }}"
-                    payload: "off"
+                  - domain: mqtt
+                    device_id: !input remote_device
+                    type: action
+                    subtype: "on"
+                    trigger: device
+                    id: "off"
                 timeout:
                   milliseconds: !input helper_double_press_delay
                 continue_on_timeout: true
@@ -201,9 +207,12 @@ action:
                 value_template: "{{ arrow_left_click_double_press }}"
             then:
               - wait_for_trigger:
-                  - platform: mqtt
-                    topic: "{{ 'zigbee2mqtt/' ~ z2m_controller ~ '/action' }}"
-                    payload: "arrow_left_click"
+                  - domain: mqtt
+                    device_id: !input remote_device
+                    type: action
+                    subtype: "on"
+                    trigger: device
+                    id: "arrow_left_click"
                 timeout:
                   milliseconds: !input helper_double_press_delay
                 continue_on_timeout: true
@@ -237,9 +246,12 @@ action:
                 value_template: "{{ arrow_right_click_double_press }}"
             then:
               - wait_for_trigger:
-                  - platform: mqtt
-                    topic: "{{ 'zigbee2mqtt/' ~ z2m_controller ~ '/action' }}"
-                    payload: "arrow_right_click"
+                  - domain: mqtt
+                    device_id: !input remote_device
+                    type: action
+                    subtype: "on"
+                    trigger: device
+                    id: "arrow_right_click"
                 timeout:
                   milliseconds: !input helper_double_press_delay
                 continue_on_timeout: true
