@@ -102,26 +102,30 @@ blueprint:
           mode: slider
 alias: Ikea remote via zigbee2mqtt
 description: ""
-trigger:
+triggers:
   - domain: mqtt
     device_id: !input remote_device
     type: action
     subtype: "on"
+    trigger: device
     id: "on"
   - domain: mqtt
     device_id: !input remote_device
     type: action
     subtype: "off"
+    trigger: device
     id: "off"
   - domain: mqtt
     device_id: !input remote_device
     type: action
     subtype: arrow_left_click
+    trigger: device
     id: arrow_left_click
   - domain: mqtt
     device_id: !input remote_device
     type: action
     subtype: arrow_right_click
+    trigger: device
     id: arrow_right_click
 condition: []
 action:
