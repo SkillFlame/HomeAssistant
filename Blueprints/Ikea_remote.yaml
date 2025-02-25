@@ -122,13 +122,12 @@ triggers:
     type: action
     subtype: arrow_right_click
     trigger: device
-    id: arrow_right_click
+    id: "arrow_right_click"
 condition: []
 action:
   - variables:
       on_double_press: !input on_double_press
       off_double_press: !input off_double_press
-      z2m_controller: !input remote_name
       lights: !input lights
   - delay: 0.01
   - choose:
