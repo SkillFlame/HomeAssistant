@@ -148,7 +148,7 @@ action:
                   - domain: mqtt
                     device_id: !input remote_device
                     type: action
-                    subtype: "off"
+                    subtype: "on"
                     trigger: device
                 timeout:
                   milliseconds: !input helper_double_press_delay
@@ -178,9 +178,8 @@ action:
                   - domain: mqtt
                     device_id: !input remote_device
                     type: action
-                    subtype: "on"
+                    subtype: "off"
                     trigger: device
-                    id: "off"
                 timeout:
                   milliseconds: !input helper_double_press_delay
                 continue_on_timeout: true
@@ -209,9 +208,8 @@ action:
                   - domain: mqtt
                     device_id: !input remote_device
                     type: action
-                    subtype: "on"
+                    subtype: "arrow_left_click"
                     trigger: device
-                    id: "arrow_left_click"
                 timeout:
                   milliseconds: !input helper_double_press_delay
                 continue_on_timeout: true
@@ -248,9 +246,8 @@ action:
                   - domain: mqtt
                     device_id: !input remote_device
                     type: action
-                    subtype: "on"
+                    subtype: "arrow_right_click"
                     trigger: device
-                    id: "arrow_right_click"
                 timeout:
                   milliseconds: !input helper_double_press_delay
                 continue_on_timeout: true
