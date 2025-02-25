@@ -134,6 +134,7 @@ action:
       off_double_press: !input off_double_press
       z2m_controller: !input remote_name
       lights: !input lights
+  - delay: 5
   - choose:
       - conditions:
           - condition: trigger
