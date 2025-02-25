@@ -129,7 +129,7 @@ action:
       on_double_press: !input on_double_press
       off_double_press: !input off_double_press
       lights: !input lights
-  - delay: 0.01
+  - delay: 0.1
   - choose:
       - conditions:
           - condition: trigger
