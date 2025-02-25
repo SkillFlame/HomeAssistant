@@ -3,14 +3,11 @@ blueprint:
   description: "Controls a light with a switch given by ENTITY. \n\nShort Button press will toggle light for both Buttons (helpfull in darkness) \n\n Mode set to restart is mandatory for stop after long press to work."
   domain: automation
   input:
-    source_switch_e1743_action:
+    remote_device:
       name: Tradfri E1743 Switch
       description: The switch-action which triggers this automation.
       selector:
-        entity:
-          filter:
-            - integration: mqtt
-              domain: sensor
+        device:
     lights:
       name: lights
       description: the lights you want to control.
@@ -19,34 +16,48 @@ blueprint:
 alias: Ikea remote via zigbee2mqtt
 description: ""
 trigger:
-  - platform: state
-    entity_id: !input source_switch_e1743_action
+  - domain: mqtt
+    device_id: !input remote_device
+    type: action
+    subtype: brightness_move_up
+    trigger: device
     id: brightness_move_up
-    to: brightness_move_up
-  - platform: state
-    entity_id: !input source_switch_e1743_action
+  - domain: mqtt
+    device_id: !input remote_device
+    type: action
+    subtype: brightness_move_down
+    trigger: device
     id: brightness_move_down
-    to: brightness_move_down
-  - platform: state
-    entity_id: !input source_switch_e1743_action
+  - domain: mqtt
+    device_id: !input remote_device
+    type: action
+    subtype: arrow_left_hold
+    trigger: device
     id: arrow_left_hold
-    to: arrow_left_hold
-  - platform: state
-    entity_id: !input source_switch_e1743_action
+  - domain: mqtt
+    device_id: !input remote_device
+    type: action
+    subtype: arrow_right_hold
+    trigger: device
     id: arrow_right_hold
-    to: arrow_right_hold
-  - platform: state
-    entity_id: !input source_switch_e1743_action
+  - domain: mqtt
+    device_id: !input remote_device
+    type: action
+    subtype: brightness_stop
+    trigger: device
     id: brightness_stop
-    to: brightness_stop
-  - platform: state
-    entity_id: !input source_switch_e1743_action
+  - domain: mqtt
+    device_id: !input remote_device
+    type: action
+    subtype: arrow_left_release
+    trigger: device
     id: arrow_left_release
-    to: arrow_left_release
-  - platform: state
-    entity_id: !input source_switch_e1743_action
+  - domain: mqtt
+    device_id: !input remote_device
+    type: action
+    subtype: arrow_right_release
+    trigger: device
     id: arrow_right_release
-    to: arrow_right_release  
 condition: []
 action:
   - variables:

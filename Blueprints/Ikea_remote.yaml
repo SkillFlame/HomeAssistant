@@ -8,10 +8,6 @@ blueprint:
       description: The switch-action which triggers this automation.
       selector:
         device:
-    remote_name:
-      name: (Zigbee2MQTT) Remote Name
-      description: The name of the controller (e.g. IKEA Rodret). **_Choose if you are using Zigbee2MQTT._**
-      default: ""
     lights:
       name: lights
       description: the lights you want to control.
@@ -120,7 +116,7 @@ triggers:
     type: action
     subtype: arrow_left_click
     trigger: device
-    id: arrow_left_click
+    id: "arrow_left_click"
   - domain: mqtt
     device_id: !input remote_device
     type: action
@@ -134,7 +130,7 @@ action:
       off_double_press: !input off_double_press
       z2m_controller: !input remote_name
       lights: !input lights
-  - delay: 0.1
+  - delay: 0.01
   - choose:
       - conditions:
           - condition: trigger
