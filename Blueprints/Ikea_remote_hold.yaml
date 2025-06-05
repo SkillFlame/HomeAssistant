@@ -76,7 +76,7 @@ action:
                     transition: 0.2
                   target: 
                     entity_id: >
-                      {{ expand('!input lights') | selectattr('state', 'eq', 'on')
+                      {{ lights.entity_id | selectattr('state', 'eq', 'on')
                         | map(attribute='entity_id') | list }}
                 - delay:
                     milliseconds: 200
@@ -94,7 +94,7 @@ action:
                     transition: 0.2
                   target:
                     entity_id: |
-                      {{ expand('!input lights') | selectattr('state', 'eq', 'on') 
+                      {{ lights.entity_id | selectattr('state', 'eq', 'on') 
                         | selectattr('attributes.brightness', 'gt', 13)
                         | selectattr('attributes.brightness', 'is_number')
                         | map(attribute='entity_id') | list }}
