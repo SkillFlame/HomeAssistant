@@ -74,7 +74,10 @@ action:
                   data:
                     brightness_step_pct: 5
                     transition: 0.2
-                  target: !input lights
+                  target: 
+                    entity_id: >
+                      {{ expand('lights') | selectattr('state', 'eq', 'on')
+                        | map(attribute='entity_id') | list }}
                 - delay:
                     milliseconds: 200
               count: 50
@@ -94,13 +97,19 @@ action:
                       metadata: {}
                       data:
                         brightness_pct: 1
-                      target: !input lights
+                      target: 
+                        entity_id: >
+                          {{ expand('lights') | selectattr('state', 'eq', 'on')
+                            | map(attribute='entity_id') | list }}
                   else:
                     - service: light.turn_on
                       data:
                         brightness_step_pct: -5
                         transition: 0.2
-                      target: !input lights
+                      target: 
+                        entity_id: >
+                          {{ expand('lights') | selectattr('state', 'eq', 'on')
+                            | map(attribute='entity_id') | list }}
                 - delay:
                     milliseconds: 200
 mode: restart
