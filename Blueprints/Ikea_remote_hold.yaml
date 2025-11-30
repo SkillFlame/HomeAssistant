@@ -94,10 +94,12 @@ action:
                     transition: 0.2
                   target:
                     entity_id: |
-                      {{ expand(lights.entity_id) | selectattr('state', 'eq', 'on') 
-                        | selectattr('attributes.brightness', 'gt', 13)
+                      {{ expand(lights.entity_id) | selectattr('state', 'eq', 'on')
+                        | selectattr('attributes.brightness', 'defined')
                         | selectattr('attributes.brightness', 'is_number')
-                        | map(attribute='entity_id') | list }}
+                        | selectattr('attributes.brightness', 'gt', 13)
+                        | map(attribute='entity_id') 
+                        | list }}
                   action: light.turn_on
                 - delay:
                     milliseconds: 200
